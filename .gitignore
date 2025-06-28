@@ -1,0 +1,40 @@
+# Archivos compilados
+*.o
+*.obj
+*.exe
+*.out
+*.app
+
+# Archivos temporales
+*~
+*.tmp
+*.temp
+
+# Directorios de build
+build/
+bin/
+obj/
+
+# Archivos de depuración
+*.pdb
+*.ilk
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de IDE
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+*.swp
+*.swo
+
+# Archivos específicos del proyecto
+calculadora
+calculadora.exe
+test_calculadora
+test_calculadora.exe
+
+# Logs
+*.log
