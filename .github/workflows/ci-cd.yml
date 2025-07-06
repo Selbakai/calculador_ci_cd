@@ -22,7 +22,7 @@ jobs:
       run: |
         cppcheck --enable=all --std=c99 --platform=unix64 \
                  --suppress=missingIncludeSystem \
-                 --suppress=unusedFunction \
+                 --suppress=unmatchedSuppression \
                  --error-exitcode=1 \
                  --inline-suppr \
                  -I include/ \
