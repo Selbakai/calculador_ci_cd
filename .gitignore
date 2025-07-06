@@ -14,6 +14,15 @@
 build/
 bin/
 obj/
+out/
+
+# Archivos de CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+!CMakeLists.txt
 
 # Archivos de depuración
 *.pdb
@@ -38,3 +47,6 @@ test_calculadora.exe
 
 # Logs
 *.log
+
+# Archivos de instalación
+install_manifest.txt

@@ -8,18 +8,27 @@ Una calculadora completa implementada en C con arquitectura modular, separando c
 calculador_ci_cd/
 ├── main.c                           # Punto de entrada principal
 ├── main.h                           # Header principal que incluye todos los módulos
-├── Makefile                         # Script de compilación
+├── CMakeLists.txt                   # Configuración de CMake
+├── build.bat                        # Script de build automático
+├── cmake_dev.bat                    # Script de comandos de desarrollo
 ├── README.md                        # Este archivo
+├── CMAKE_GUIDE.md                   # Guía completa de CMake
 ├── include/                         # Archivos de cabecera (.h)
 │   ├── operaciones_basicas.h        # Declaraciones de operaciones básicas
 │   ├── operaciones_avanzadas.h      # Declaraciones de operaciones avanzadas
 │   ├── utilidades.h                 # Declaraciones de funciones de utilidad
 │   └── calculadora.h                # Declaración de la función principal
-└── src/                             # Archivos de implementación (.c)
-    ├── operaciones_basicas.c        # Implementación de suma, resta, multiplicación, división
-    ├── operaciones_avanzadas.c      # Implementación de potencia, raíz cuadrada, porcentaje
-    ├── utilidades.c                 # Funciones de interfaz y entrada de datos
-    └── calculadora.c                # Lógica principal de la calculadora
+├── src/                             # Archivos de implementación (.c)
+│   ├── operaciones_basicas.c        # Implementación de suma, resta, multiplicación, división
+│   ├── operaciones_avanzadas.c      # Implementación de potencia, raíz cuadrada, porcentaje
+│   ├── utilidades.c                 # Funciones de interfaz y entrada de datos
+│   └── calculadora.c                # Lógica principal de la calculadora
+├── test/                            # Directorio de tests
+│   ├── test.h                       # Header para tests con macros y declaraciones
+│   └── test.c                       # Tests unitarios
+└── build/                           # Directorio de compilación (generado por CMake)
+    ├── calculadora.exe              # Ejecutable principal
+    └── test_calculadora.exe         # Ejecutable de tests
 ```
 
 ## ✨ Características
@@ -46,38 +55,54 @@ calculador_ci_cd/
 ### Prerrequisitos
 
 - Compilador GCC
-- Make (opcional, pero recomendado)
+- CMake (versión 3.10 o superior)
+- Make o MinGW (para Windows)
 
-### Usando Make (Recomendado)
+### Usando CMake
 
+#### Compilación Automática
 ```cmd
-# Compilar el proyecto
-make
-
-# Compilar y ejecutar
-make run
-
-# Compilar en modo debug
-make debug
-
-# Limpiar archivos compilados
-make clean
-
-# Ver estructura del proyecto
-make info
-
-# Ver ayuda
-make help
+# Ejecutar script de build completo
+build.bat
 ```
 
-### Compilación Manual
-
+#### Compilación Manual
 ```cmd
-# Compilar todos los archivos
-gcc -Wall -Wextra -std=c99 -Iinclude -o calculadora main.c src/operaciones_basicas.c src/operaciones_avanzadas.c src/utilidades.c src/calculadora.c -lm
+# Configurar el proyecto
+cmake -B build -G "MinGW Makefiles"
 
-# Ejecutar
-calculadora.exe
+# Compilar
+cmake --build build
+
+# Ejecutar tests
+cd build && ctest --verbose
+
+# Ejecutar calculadora
+build\calculadora.exe
+```
+
+#### Comandos de Desarrollo
+```cmd
+# Configurar proyecto
+cmake_dev.bat configure
+
+# Compilar
+cmake_dev.bat build
+
+# Ejecutar tests
+cmake_dev.bat test
+
+# Ejecutar calculadora
+cmake_dev.bat run
+
+# Limpiar
+cmake_dev.bat clean
+
+# Reconstruir todo
+cmake_dev.bat rebuild
+
+# Ver ayuda
+cmake_dev.bat help
 ```
 
 ## 📋 Uso

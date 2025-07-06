@@ -2,8 +2,8 @@
 #include "../include/operaciones_avanzadas.h"
 #include "../include/operaciones_basicas.h"
 #include "../include/utilidades.h"
+#include <math.h>
 #include <stdio.h>
-
 
 void ejecutar_calculadora(void) {
   int opcion;
